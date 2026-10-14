@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        button {
+            transition: all 0.15s ease;
+            user-select: none;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        button:active {
+            transform: scale(0.94);
+        }
+
+        #displayNumber {
+            scrollbar-width: none;
+        }
+
+        #displayNumber::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500 min-h-screen flex justify-center items-center p-4">
+
+    <div class="bg-white p-4 rounded-2xl w-full max-w-xs shadow-2xl">
+
+        <!-- Logo -->
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <img
+                src="https://static.vecteezy.com/system/resources/previews/026/183/278/non_2x/creative-calculator-logo-icon-design-template-free-vector.jpg"
+                alt="Calculator Logo"
+                class="w-8 h-8 object-cover rounded"
+            >
+
+            <h1 class="text-2xl font-bold text-gray-800">Calc</h1>
+        </div>
+
+        <!-- Display -->
+        <input
+            type="text"
+            placeholder="0"
+            id="displayNumber"
+            readonly
+            class="border border-gray-300 bg-gray-50 w-full p-3 rounded-lg mb-4 text-right text-2xl font-semibold outline-none"
+        >
+
+        <!-- Calculator Buttons -->
+        <div class="grid grid-cols-4 gap-2">
+
+            <button onclick="clearBox()" class="bg-red-500 text-white p-3 rounded-lg">AC</button>
+            <button onclick="removeLastItem()" class="bg-orange-400 text-white p-3 rounded-lg">DEL</button>
+            <button onclick="appendValue('%')" class="bg-gray-300 p-3 rounded-lg">%</button>
+            <button onclick="appendValue('/')" class="bg-purple-200 p-3 rounded-lg">÷</button>
+
+            <button onclick="appendValue('7')" class="bg-gray-100 p-3 rounded-lg">7</button>
+            <button onclick="appendValue('8')" class="bg-gray-100 p-3 rounded-lg">8</button>
+            <button onclick="appendValue('9')" class="bg-gray-100 p-3 rounded-lg">9</button>
+            <button onclick="appendValue('*')" class="bg-purple-200 p-3 rounded-lg">×</button>
+
+            <button onclick="appendValue('4')" class="bg-gray-100 p-3 rounded-lg">4</button>
+            <button onclick="appendValue('5')" class="bg-gray-100 p-3 rounded-lg">5</button>
+            <button onclick="appendValue('6')" class="bg-gray-100 p-3 rounded-lg">6</button>
+            <button onclick="appendValue('-')" class="bg-purple-200 p-3 rounded-lg">−</button>
+
+            <button onclick="appendValue('1')" class="bg-gray-100 p-3 rounded-lg">1</button>
+            <button onclick="appendValue('2')" class="bg-gray-100 p-3 rounded-lg">2</button>
+            <button onclick="appendValue('3')" class="bg-gray-100 p-3 rounded-lg">3</button>
+            <button onclick="appendValue('+')" class="bg-purple-200 p-3 rounded-lg">+</button>
+
+            <button onclick="appendValue('0')" class="bg-gray-100 p-3 rounded-lg">0</button>
+            <button onclick="appendValue('00')" class="bg-gray-100 p-3 rounded-lg">00</button>
+            <button onclick="appendValue('.')" class="bg-gray-100 p-3 rounded-lg">.</button>
+            <button onclick="evaluateExp()" class="bg-green-500 text-white p-3 rounded-lg">=</button>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
